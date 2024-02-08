@@ -10,6 +10,11 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+
+@app.route('/creating_polygon')
+def creating_polygon():
+    return render_template('creating_polygon.html')
+
 @app.route('/create_polygon', methods=['POST'])
 def create_polygon():
     data = request.json
