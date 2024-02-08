@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web App</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button_style.css') }}">
 </head>
 <body>
     <div class="Buyer_seller_interface">
@@ -23,7 +23,7 @@
         <span>Computing motorable distances between two points</span>
         <span>Mapping points to polygons/paths interactively or using an API</span>
     </div>
-    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     
 </body>
 </html>
