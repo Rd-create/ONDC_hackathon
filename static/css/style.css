@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
 
-<<<<<<< Updated upstream
-body {
-	background-image: url("../images/ONDC2.png");
-	background-position: relative;
-	background-origin: content-box;
-	background-repeat: no-repeat;
-	background-size: cover;
-	min-height: 100vh;
-=======
 body{
 	background-image: url("../images/ONDC2.png");
 	background-position: center;
@@ -16,7 +7,6 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 	min-height:100vh;
->>>>>>> Stashed changes
 	font-family: 'Noto Sans', sans-serif;
 }
 .text-center{
