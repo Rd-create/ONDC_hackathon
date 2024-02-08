@@ -6,8 +6,9 @@ body{
     background-origin: content-box;
     background-repeat: no-repeat;
     background-size: cover;
-	min-height:100vh;
-	font-family: 'Noto Sans', sans-serif;
+    background-attachment: fixed; /* Prevents background image from overflowing */
+    min-height: 100vh;
+    font-family: 'Noto Sans', sans-serif;
 }
 .text-center{
 	color:#fff;	
