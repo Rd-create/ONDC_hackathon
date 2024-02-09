@@ -72,6 +72,12 @@ body {
   outline: none;
   border-bottom: 1px solid #e74c3c;
 }
+
+.top-right-links {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
 .btn {
   color: #fff;
   background-color: #e74c3c;
