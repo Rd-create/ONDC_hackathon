@@ -13,15 +13,16 @@ def create_polygon():
         return jsonify({'error': 'Invalid input. Please provide non-empty vertices array.'}), 400
 
     vertices = data.get('vertices')
-    point_format = data.get('point_format', 'gps')  # Default to GPS
+    # point_format = data.get('point_format', 'gps')  # Default to GPS
 
     # Convert vertices to Shapely points based on specified format
-    try:
-        points = [convert_point_format(vertex, point_format) for vertex in vertices]
-    except ValueError as e:
-        return jsonify({'error': str(e)}), 400
+    # try:
+    #     points = [convert_point_format(vertex, point_format) for vertex in vertices]
+    # except ValueError as e:
+    #     return jsonify({'error': str(e)}), 400
 
     # Create Shapely polygon
+    points = vertices
     try:
         polygon = Polygon(points)
     except ValueError as e:
@@ -35,16 +36,20 @@ def create_polygon():
     folium.Polygon(locations=[(point.y, point.x) for point in points],
                     color='blue', fill=True, fill_color='blue').add_to(m)
 
-    return jsonify({'message': 'Polygon created successfully', 'polygon': polygon_geojson, 'map_html': m.get_root().render()})
+    map_html_path = 'map.html'
+    m.save(map_html_path)
+
+    return jsonify({'message': 'Polygon created successfully'})
 
 
 # Point format conversion function
 def convert_point_format(point, format):
-    if format == "gps":
+    format_lower = format.lower()  # Convert format to lowercase
+    if format_lower == "gps":
         return Point(geopy.Point(point).longitude, geopy.Point(point).latitude)
-    elif format == "s2":
+    elif format_lower == "s2":
         return Point(geopy.Point.from_s2_cellid(point).longitude, geopy.Point.from_s2_cellid(point).latitude)
-    elif format == "h3":
+    elif format_lower == "h3":
         return Point(geopy.Point.from_h3_index(point).longitude, geopy.Point.from_h3_index(point).latitude)
     else:
         raise ValueError("Unsupported point format")
