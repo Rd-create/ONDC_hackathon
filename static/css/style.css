@@ -55,7 +55,7 @@ body {
   left: 0px;
   font-size: 16px;
   color: #fff;
-  pointer-event: none;
+  pointer-events: none;
   transition: all 0.5s ease-in-out;
 }
 .input-container input {
@@ -137,7 +137,7 @@ body {
   left: 0px;
   font-size: 16px;
   color: #fff;
-  pointer-event: none;
+  pointer-events: none;
   transition: all 0.5s ease-in-out;
 }
 .input-container input {
