@@ -1,10 +1,19 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import folium
 import geopandas as gpd
 from shapely.geometry import Point, Polygon
 import geopy  # For point format conversion
 
 app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/creating_polygon')
+def creating_polygon():
+    return render_template('creating_polygon.html')
 
 @app.route('/create_polygon', methods=['POST'])
 def create_polygon():
